@@ -3,10 +3,6 @@
 
 # Framer Motion BASIC Notes 
 
-```tsx
-export default function Page() {
-  return <div></div>;
-}
 
 If you're using client-side rendering (like in a standard React app):
 
