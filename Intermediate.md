@@ -113,7 +113,6 @@ export default function SpringBox() {
 
 The `useTransform` hook from **Framer Motion** is used to create derived, reactive values based on a `MotionValue`. It’s incredibly useful when you want to **map one range of values to another**, making it perfect for scroll-based effects, drag-based transformations, or creating synchronized animations.
 
----
 
 ### 📌 What does `useTransform` do?
 
@@ -126,7 +125,6 @@ Think of it as a smart mapping:
 
 It continuously tracks changes in the original `MotionValue` and updates the new one reactively.
 
----
 
 ### ⚙️ Syntax
 
@@ -144,7 +142,6 @@ You can also use a function-based version:
 const newValue = useTransform(motionValue, (latest) => latest * 2);
 ```
 
----
 
 ### 🎯 Real-world Use Cases
 
@@ -153,7 +150,6 @@ const newValue = useTransform(motionValue, (latest) => latest * 2);
 - Change **opacity or blur** based on scroll.
 - Rotate or skew components on interaction.
 
----
 
 ### 📘 Learnings & Key Points
 
@@ -164,7 +160,6 @@ const newValue = useTransform(motionValue, (latest) => latest * 2);
 | Smooth Mapping | Animations feel fluid and controlled. |
 | Chainable | You can transform multiple values off a single source. |
 
----
 
 ### ✅ Example: Drag to Scale and Change Color
 
@@ -192,7 +187,6 @@ export default function TransformExample() {
 }
 ```
 
----
 
 ### 🧠 What this does:
 - You can drag the box **horizontally** (`drag="x"`).
