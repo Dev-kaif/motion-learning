@@ -236,22 +236,22 @@ export default function TransformExample() {
 ---
 
 
-### 4. `useVelocity`
+## 4. `useVelocity`
 
-#### 🔍 What It Does:
+### 🔍 What It Does:
 
 `useVelocity` tracks the **velocity** (speed and direction) of a `MotionValue`. It returns a new `MotionValue` that updates in real-time as the source value changes.
 
 ---
 
-#### ✅ Use When:
+### ✅ Use When:
 - You want to create **momentum-based effects** after dragging.
 - You want to detect **fast movements** to trigger an effect.
 - For swipe gestures, **throw animations**, or **inertia-based motion** (like Tinder swipe or carousels).
 
 ---
 
-#### ⚙️ Syntax:
+### ⚙️ Syntax:
 ```ts
 const x = useMotionValue(0);
 const velocity = useVelocity(x);
@@ -297,7 +297,7 @@ export default function SwipeCard() {
 }
 ```
 
-#### 💬 What’s Happening:
+### 💬 What’s Happening:
 - Drag the card.
 - If the **velocity** is high (fast swipe), it automatically flies off the screen.
 - We're listening to velocity changes with `.on('change')` to trigger animations.
