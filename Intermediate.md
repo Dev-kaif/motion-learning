@@ -1,7 +1,6 @@
-
 # 🎯 Intermediate Motion Notes
 
-## ✅ Hooks : 
+## ✅ Hooks :
 
 ### 1. `useMotionValue`
 
@@ -108,31 +107,29 @@ export default function SpringBox() {
 
 ---
 
-
 ## 🧩 3. `useTransform`
 
 The `useTransform` hook from **Framer Motion** is used to create derived, reactive values based on a `MotionValue`. It’s incredibly useful when you want to **map one range of values to another**, making it perfect for scroll-based effects, drag-based transformations, or creating synchronized animations.
-
 
 ### 📌 What does `useTransform` do?
 
 It **transforms** one motion value into another.
 
 Think of it as a smart mapping:
+
 - You give it a motion value (like `x` from dragging),
 - an input range (where the value starts and ends),
 - and an output range (what you want to turn that into, like scale, opacity, rotation, etc).
 
 It continuously tracks changes in the original `MotionValue` and updates the new one reactively.
 
-
 ### ⚙️ Syntax
 
 ```ts
 const derivedValue = useTransform(
-  motionValue,        // original MotionValue
-  [inputStart, inputEnd],   // input range
-  [outputStart, outputEnd]  // output range
+  motionValue, // original MotionValue
+  [inputStart, inputEnd], // input range
+  [outputStart, outputEnd] // output range
 );
 ```
 
@@ -142,7 +139,6 @@ You can also use a function-based version:
 const newValue = useTransform(motionValue, (latest) => latest * 2);
 ```
 
-
 ### 🎯 Real-world Use Cases
 
 - Make an element **scale up or down** based on drag distance.
@@ -150,16 +146,14 @@ const newValue = useTransform(motionValue, (latest) => latest * 2);
 - Change **opacity or blur** based on scroll.
 - Rotate or skew components on interaction.
 
-
 ### 📘 Learnings & Key Points
 
-| Concept | Insight |
-|--------|---------|
-| Reactive | `useTransform` updates the variable value automatically with the base `MotionValue`. |
-| Declarative | You don’t need `useEffect` or listeners. |
-| Smooth Mapping | Animations feel fluid and controlled. |
-| Chainable | You can transform multiple values off a single source. |
-
+| Concept        | Insight                                                                              |
+| -------------- | ------------------------------------------------------------------------------------ |
+| Reactive       | `useTransform` updates the variable value automatically with the base `MotionValue`. |
+| Declarative    | You don’t need `useEffect` or listeners.                                             |
+| Smooth Mapping | Animations feel fluid and controlled.                                                |
+| Chainable      | You can transform multiple values off a single source.                               |
 
 ### ✅ Example: Drag to Scale and Change Color
 
@@ -171,7 +165,11 @@ export default function TransformExample() {
   const x = useMotionValue(0);
 
   const scale = useTransform(x, [-200, 200], [0.5, 1.5]);
-  const backgroundColor = useTransform(x, [-200, 0, 200], ["#f43f5e", "#3b82f6", "#10b981"]);
+  const backgroundColor = useTransform(
+    x,
+    [-200, 0, 200],
+    ["#f43f5e", "#3b82f6", "#10b981"]
+  );
 
   return (
     <div className="h-screen flex items-center justify-center bg-gray-100">
@@ -187,8 +185,8 @@ export default function TransformExample() {
 }
 ```
 
-
 ### 🧠 What this does:
+
 - You can drag the box **horizontally** (`drag="x"`).
 - As you drag:
   - The `x` value updates in real-time.
