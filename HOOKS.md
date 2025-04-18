@@ -311,6 +311,102 @@ export default function SwipeCard() {
 - Unlike `useSpring` (which smooths the value), `useVelocity` observes how fast it's changing.
 - Can be chained with `useTransform`, `useSpring`, or event listeners for custom control.
 
+---
+
+
+
+## 5. `useScroll`
+
+### 🔍 What It Does:
+
+The `useScroll` hook tracks the scroll position of a specified element or the viewport. It returns `scrollX` and `scrollY` motion values that can be used to animate elements based on how far the user has scrolled.
+
+Great for:
+
+- Scroll-based animations
+- Sticky headers
+- Parallax effects
+- Revealing elements as you scroll
+
+---
+
+### ⚙️ Syntax:
+
+```tsx
+const { scrollY, scrollYProgress } = useScroll();
+```
+
+Or to target a specific element:
+
+```tsx
+const ref = useRef(null);
+const { scrollYProgress } = useScroll({ target: ref });
+```
+
+
+### ✅ Use When:
+- You want to create scroll-based transitions (e.g., opacity, scale, position).
+- You need to trigger animations based on a component’s visibility in viewport.
+- You want to **tie transforms to scroll progress**, like a parallax or timeline effect.
+
+
+### 🧪 Example – Fade and Scale on Scroll:
+
+```tsx
+"use client";
+
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+
+export default function ScrollFadeBox() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+
+  const opacity = useTransform(scrollYProgress, [0, 1], [0.2, 1]);
+  const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1.2]);
+
+  return (
+    <div className="h-[200vh] flex items-center justify-center bg-gray-100">
+      <motion.div
+        ref={ref}
+        style={{ opacity, scale }}
+        className="w-48 h-48 bg-pink-500 rounded-xl flex items-center justify-center text-white font-bold shadow-lg"
+      >
+        Scroll Me
+      </motion.div>
+    </div>
+  );
+}
+```
+
+
+### 🎓 Learnings:
+
+- `useScroll` gives real-time **scroll position or scroll progress** as `MotionValue`s.
+- Combine it with `useTransform` to control styles based on scroll.
+- `scrollYProgress` ranges from 0 → 1 across the scroll area.
+- Use `offset` to fine-tune when animations start/end.
+
+
+### 🔧 Tips:
+- Use `scrollY` when you want **absolute scroll position**.
+- Use `scrollYProgress` for **normalized progress** between 0 and 1 — ideal for transitions.
+- Combine with `useSpring` for smoothed scroll effects.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ---
 
