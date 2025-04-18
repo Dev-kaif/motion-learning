@@ -1,9 +1,7 @@
 
----
 # 🎯 Intermediate Motion Notes
 
-## ✅ Hooks
----
+## ✅ Hooks : 
 
 ### 1. `useMotionValue`
 
@@ -110,11 +108,7 @@ export default function SpringBox() {
 
 ---
 
-Here you go, Kaif — a clean and informative `README.md`-style note for `useTransform`, including explanations, learnings, usage, and a complete Tailwind-styled example. Let me know if you want a visual animation GIF or a code sandbox to go with it later!
 
----
-
-```md
 ## 🧩 3. `useTransform`
 
 The `useTransform` hook from **Framer Motion** is used to create derived, reactive values based on a `MotionValue`. It’s incredibly useful when you want to **map one range of values to another**, making it perfect for scroll-based effects, drag-based transformations, or creating synchronized animations.
