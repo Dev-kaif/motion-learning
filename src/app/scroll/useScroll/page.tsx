@@ -2,7 +2,6 @@
 
 import { motion,useScroll, useTransform } from "motion/react";
 
-/* eslint-disable @next/next/no-img-element */
 export default function Page() {
     const {scrollY} = useScroll();
     const scale = useTransform(scrollY,[0,100],[1,0.5])
