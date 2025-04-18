@@ -6,7 +6,7 @@ const parentVariants = {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,     // Delay between children
-        delayChildren: 0.5        // Initial delay before starting
+        delayChildren: 0.5,        // Initial delay before starting
       }
     }
   };
